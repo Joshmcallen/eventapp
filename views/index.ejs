@@ -7,14 +7,14 @@
   </head>
   <body>
 
-    <!-- <p>Welcome <%= members[1].name %></p> -->
+
     <h2>Welcome</h2>
 
     <label>Event:</label>
 <select class="form-control" type= "text" name="category">
-  <option value="event1">Event1</option>
-  <option value="event2">Event2</option>
-  <option value="event3" selected>Event3</option>
+  <% meetings.forEach(function(meeting){%>
+  <option value="<%=meeting.name%>"><%=meeting.name%></option>
+  <% });%>
   <!-- testing 'selected and value attributes' -->
 </select>
 
@@ -44,6 +44,13 @@
   <a href="/eventlist">Eventlist</a>
 </div>
 
+<h1>testing member collection</h1>
+<% members.forEach(function(member){%>
+<p><%=member.name %></p>
+<div class="">
+  <img src="<%=member.image %>" alt="">
+</div>
+<% });%>
 
   </body>
 </html>

@@ -10,15 +10,15 @@
 <!-- for to edit member info -->
     <h1><%= title %></h1>
     <form action="/editevent/<%=meetings.id%>" method="post">
-            <input class="form-control" type="text" name="name" value="<%=meetings.name %>" placeholder="name">
-            <input class="form-control" type="text" name="date" value="<%=meetings.date %>" placeholder="date">
+            <input class="form-control" type="text" name="name" value="<%=meetings.name %>" placeholder="event name">
+            <input class="form-control" type="text" name="dat" value="<%=meetings.date %>" placeholder="date">
             <input class="form-control" type="text" name="location" value="<%=meetings.location %>" placeholder="location">
 
             <button class="form-control btn btn-primary" type="submit">Update Guest</button>
           </form>
 
 
-
+    <a href="/">Main Page</a>
 
 
 

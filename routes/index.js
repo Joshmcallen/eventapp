@@ -6,18 +6,43 @@ var Meeting = require('../models/meeting');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  Member.find({}, function(err, members){
-    res.render('index', {title: "index", members: members});
+  Meeting.find({}, function(err, meetings){
+
+    Member.find({}, function(err, members){
+      res.render('index', {title: "index", members: members, meetings: meetings});
+    });
   });
 });
 
-////////////////////////////////////////////////////////////////////////////////
+
+// //Post that will update two collection
+// router.post('/editmember/:id', function(req, res, next){
+//
+//     var id = req.params.id;
+//     var original = id.name;
+//     console.log(req.body);
+//
+//     Member.findByIdAndUpdate(id,{$set:req.body}, function(err, result){
+//         if(err){
+//             console.log('error editing');
+//         }
+//         res.redirect('/memberlist')
+//     });
+// });
+
+
+
+
+
+
+
+//////////////////////////////Memberlist Pages//////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 //GET page with entire memberlist
 router.get('/memberlist', function(req, res, next){
 
   Member.find({}, function(err, members, meetings){
-    res.render('memberlist', {title:"test", members: members, meetings: meetings});
+    res.render('memberlist', {title:"test", members: members});
   });
 });
 //GET page with form to add member
@@ -28,6 +53,13 @@ router.get('/addmember', function(req, res, next){
 router.post('/addmember', function(req, res, next){
 
   var member = new Member(req.body);
+
+  //multer - get image from multer and set path
+  var multer_image = "";
+  req.file ? multer_image = `/images/uploads/${req.file.filename}` : multer_image = `/images/uploads/default.jpg`;
+  //now set member.image to multer_image url
+  member.image = multer_image;
+
 
   member.save(function(err){
     if(err)res.send(err);
@@ -80,6 +112,9 @@ router.post('/editmember/:id', function(req, res, next){
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+
+//////////////////////////////Eventlist Pages///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 //GET page with entire eventlist
 router.get('/eventlist', function(req, res, next){
 
@@ -144,11 +179,8 @@ router.post('/editevent/:id', function(req, res, next){
         res.redirect('/eventlist')
     });
 });
-
-
-
-
-
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 
 
