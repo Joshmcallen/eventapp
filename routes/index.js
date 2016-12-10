@@ -16,13 +16,13 @@ router.get('/', function(req, res, next) {
 //GET page with entire memberlist
 router.get('/memberlist', function(req, res, next){
 
-  Member.find({}, function(err, members){
-    res.render('memberlist', {title:"test", members: members});
+  Member.find({}, function(err, members, meetings){
+    res.render('memberlist', {title:"test", members: members, meetings: meetings});
   });
 });
 //GET page with form to add member
 router.get('/addmember', function(req, res, next){
-    res.render('addmember', {title:"Add new member"});
+    res.render('addmember', {title:"Add New Guest"});
 });
 //Post to add member
 router.post('/addmember', function(req, res, next){
@@ -59,7 +59,7 @@ router.get('/editmember/:id', function(req, res, next){
       console.log("item not found")
       }
     else {
-       res.render('editmember', {title: 'Edit Member', members:members})
+       res.render('editmember', {title: 'Edit Guest', members:members})
      }
   });
 });
@@ -80,9 +80,70 @@ router.post('/editmember/:id', function(req, res, next){
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+//GET page with entire eventlist
+router.get('/eventlist', function(req, res, next){
 
+  Meeting.find({}, function(err, meetings){
+    res.render('eventlist', {title:"Event List", meetings: meetings});
+  });
+});
+//GET page with form to add event
+router.get('/addevent', function(req, res, next){
+  res.render('addevent', {title: 'Add New Event'});
+});
+//Post to add event
+router.post('/addevent', function(req, res, next){
 
+  var meeting = new Meeting(req.body);
 
+  meeting.save(function(err){
+    if(err)res.send(err);
+    res.redirect('/eventlist');
+  });
+});
+//Post to delete specific event
+router.post('/eventlist/:id', function(req, res, next){
+  console.log('im in route')
+
+  var id = req.params.id;
+  console.log(id);
+
+  Meeting.remove({_id:id}, function(err){
+    if(err){
+      console.log('item not found');
+    }
+    else{
+      res.redirect('/eventlist');
+    }
+  });
+});
+//GET edit page of specific event
+router.get('/editevent/:id', function(req, res, next){
+  var id = req.params.id;
+  console.log(req.params);
+  Meeting.findById(id, function(err, meetings) {
+    if(err){
+      console.log("item not found")
+      }
+    else {
+       res.render('editevent', {title: 'Edit Event', meetings:meetings})
+     }
+  });
+});
+//Post to edit specific event
+router.post('/editevent/:id', function(req, res, next){
+
+    var id = req.params.id;
+    var original = id.name;
+    console.log(req.body);
+
+    Meeting.findByIdAndUpdate(id,{$set:req.body}, function(err, result){
+        if(err){
+            console.log('error editing');
+        }
+        res.redirect('/eventlist')
+    });
+});
 
 
 

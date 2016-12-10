@@ -11,24 +11,23 @@
 <!-- all member information sorted with a table -->
         <table class="table table-hover table-inverse">
           <thead>
-            <td> Name</td>
-            <td> Email</td>
-            <td> Phone Number</td>
+            <td> Event</td>
+            <td> Date</td>
+            <td> Location</td>
             <td></td>
           </thead>
           <tbody>
-          <% members.forEach(function(member){%>
+          <% meetings.forEach(function(meeting){%>
             <tr>
-              <td><%=member.name%></td>
-              <td><%=member.email%></td>
-              <td><%=member.phone%></td>
-              <td><a href="/editmember/<%=member.id %>" class="btn btn-warning">Edit</a></td>
+              <td><%=meeting.name%></td>
+              <td><%=meeting.date%></td>
+              <td><%=meeting.location%></td>
+              <td><a href="/editevent/<%=meeting.id %>" class="btn btn-warning">Edit</a></td>
               <td>
-                <form class="" action="/memberlist/<%=member._id %>" method="POST">
+                <form class="" action="/eventlist/<%=meeting._id %>" method="POST">
                 <button type="submit" name="button" class="btn btn-danger">Delete</button>
                 </form>
               </td>
-
             </tr>
             <% });%>
 

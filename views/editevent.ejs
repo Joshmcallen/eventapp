@@ -9,11 +9,11 @@
 
 <!-- for to edit member info -->
     <h1><%= title %></h1>
-    <form action="/editmember/<%=members.id%>" method="post">
-            <input class="form-control" type="text" name="name" value="<%=members.name %>" placeholder="name">
-            <input class="form-control" type="text" name="email" value="<%=members.email %>" placeholder="email">
-            <input class="form-control" type="text" name="phone" value="<%=members.phone %>" placeholder="phone #">
-              <input class="form-control" type="text" name="description" value="<%=members.description %>" placeholder="description">
+    <form action="/editevent/<%=meetings.id%>" method="post">
+            <input class="form-control" type="text" name="name" value="<%=meetings.name %>" placeholder="name">
+            <input class="form-control" type="text" name="date" value="<%=meetings.date %>" placeholder="date">
+            <input class="form-control" type="text" name="location" value="<%=meetings.location %>" placeholder="location">
+
             <button class="form-control btn btn-primary" type="submit">Update Guest</button>
           </form>
 
