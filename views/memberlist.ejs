@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+
+<!-- all member information unsorted.  just testing output. -->
+    <!-- <div class="container">
+        <center>
+          <label>Members:</label>
+        </center>
+
+        <% members.forEach(function(member){%>
+        <div class="row">
+
+          <div class="col-md-7">
+          <p> <%=member.name%> </p>
+          <p> <%=member.description%></p>
+          <p> <%=member.email%></p>
+          </div>
+
+        </div>
+          <% });%>
+        </div> -->
+
+<!-- all member information sorted with a table -->
+        <table class="table table-hover table-inverse">
+          <thead>
+            <td> Name</td>
+            <td> Email</td>
+            <td></td>
+          </thead>
+          <tbody>
+          <% members.forEach(function(member){%>
+            <tr>
+              <td><%=member.name%></td>
+              <td><%=member.email%></td>
+              <td><a href="/editmember/<%=member.id %>" class="btn btn-primary">Edit</a></td>
+              <td>
+                <form class="" action="/memberlist/<%=member._id %>" method="POST">
+                <button type="submit" name="button" class="btn btn-danger">Delete</button>
+                </form>
+              </td>
+
+            </tr>
+            <% });%>
+
+          </tbody>
+        </table>
+<!-- end of table with member information -->
+
+<a href="/">Main Page</a>
+
+
+
+  </body>
+</html>
