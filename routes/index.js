@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Member = require('../models/member');
+var Meeting = require('../models/meeting');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,7 +11,8 @@ router.get('/', function(req, res, next) {
   });
 });
 
-
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 //GET page with entire memberlist
 router.get('/memberlist', function(req, res, next){
 
@@ -18,8 +20,6 @@ router.get('/memberlist', function(req, res, next){
     res.render('memberlist', {title:"test", members: members});
   });
 });
-
-
 //GET page with form to add member
 router.get('/addmember', function(req, res, next){
     res.render('addmember', {title:"Add new member"});
@@ -34,7 +34,6 @@ router.post('/addmember', function(req, res, next){
     res.redirect('/memberlist');
   });
 });
-
 //Post to delete specific member
 router.post('/memberlist/:id', function(req, res, next){
   console.log('im in route')
@@ -51,10 +50,7 @@ router.post('/memberlist/:id', function(req, res, next){
     }
   });
 });
-
-
-
-// go to edit page of specific item
+// go to edit page of specific member
 router.get('/editmember/:id', function(req, res, next){
   var id = req.params.id;
   console.log(req.params);
@@ -63,11 +59,11 @@ router.get('/editmember/:id', function(req, res, next){
       console.log("item not found")
       }
     else {
-       res.render('editmember', {title: 'edit page', members:members})
+       res.render('editmember', {title: 'Edit Member', members:members})
      }
   });
 });
-//Post to update specific member
+//Post to edit specific member
 router.post('/editmember/:id', function(req, res, next){
 
     var id = req.params.id;
@@ -81,14 +77,20 @@ router.post('/editmember/:id', function(req, res, next){
         res.redirect('/memberlist')
     });
 });
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 
-//test
-// router.post('/new', function(req, res, next){
-//   var member = new Member(req.body);
-//   member.save();
-//   res.redirect('/');
-// });
+
+
+
+
+
+
+
+
+
+
 
 
 module.exports = router;

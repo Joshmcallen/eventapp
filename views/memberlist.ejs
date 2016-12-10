@@ -31,6 +31,7 @@
           <thead>
             <td> Name</td>
             <td> Email</td>
+            <td> Phone Number</td>
             <td></td>
           </thead>
           <tbody>
@@ -38,7 +39,8 @@
             <tr>
               <td><%=member.name%></td>
               <td><%=member.email%></td>
-              <td><a href="/editmember/<%=member.id %>" class="btn btn-primary">Edit</a></td>
+              <td><%=member.phone%></td>
+              <td><a href="/editmember/<%=member.id %>" class="btn btn-warning">Edit</a></td>
               <td>
                 <form class="" action="/memberlist/<%=member._id %>" method="POST">
                 <button type="submit" name="button" class="btn btn-danger">Delete</button>

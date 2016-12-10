@@ -10,10 +10,11 @@
 <!-- for to edit member info -->
     <h1><%= title %></h1>
     <form action="/editmember/<%=members.id%>" method="post">
-            <input type="text" name="name" value="<%=members.name %>">
-            <input type="text" name="description" value="<%=members.description %>">
-            <input type="text" name="email" value="<%=members.email %>">
-            <button type="submit">Update Member</button>
+            <input class="form-control" type="text" name="name" value="<%=members.name %>" placeholder="name">
+            <input class="form-control" type="text" name="email" value="<%=members.email %>" placeholder="email">
+            <input class="form-control" type="text" name="phone" value="<%=members.phone %>" placeholder="phone #">
+              <input class="form-control" type="text" name="description" value="<%=members.description %>" placeholder="description">
+            <button class="form-control btn btn-primary" type="submit">Update Member</button>
           </form>
 
 

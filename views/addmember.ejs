@@ -9,10 +9,19 @@
 
     <h1><%= title %></h1>
     <form action="/addmember" method="post">
-            <input type="text" name="name" placeholder="item name">
-            <input type="text" name="description" placeholder="description">
-            <input type="text" name="email" placeholder="email">
-            <button type="submit">Add Member</button>
+          <div class="">
+            <input class="form-control" type="text" name="name" placeholder="name">
+          </div>
+          <div class="">
+            <input class="form-control" type="text" name="email" placeholder="email">
+          </div>
+          <div class="">
+            <input class="form-control" type="text" name="phone" placeholder="phone #">
+          </div>
+          <div class="">
+            <input class="form-control" type="text" name="description" placeholder="description">
+          </div>
+            <button class= "form-control btn btn-primary" type="submit">Add Member</button>
           </form>
 
 
