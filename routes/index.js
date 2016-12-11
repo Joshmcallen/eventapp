@@ -3,6 +3,8 @@ var router = express.Router();
 var Member = require('../models/member');
 var Meeting = require('../models/meeting');
 
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
@@ -16,22 +18,60 @@ router.get('/', function(req, res, next) {
 
 
 // //Post that will update two collection
-// router.post('/editmember/:id', function(req, res, next){
+router.post('/:id', function(req, res, next){
+
+  // console.log('im testing update route')
+  //
+  // var id = req.params.id;
+  // var member = new Member({
+  //   "events": req.body.Meeting.name
+  // });
+  // console.log(member);
+  // console.log(id);
+
 //
+//   Member.findByIdAndUpdate(
+//           info._id,
+//           {$push: {"events": {title: title, msg: msg}}}, {new : true}, function(err, members) {
+//               console.log(err);
+//           }
+//       );
+//
+//   //placeholder logic to push name of meeting(event) into member array of events
+//   Member.events.push(Meeting.name);
+//
+//   //placeholder logic to push name of meeting(event) into member array of events
+//   Meeting.attendants.push(Member.name);
+//
+});
+//
+//   Meeting.attendants.push
+
+
+// console.log(req.params.id);
 //     var id = req.params.id;
 //     var original = id.name;
-//     console.log(req.body);
-//
-//     Member.findByIdAndUpdate(id,{$set:req.body}, function(err, result){
+
+
+//     Member.findByIdAndUpdate(id,{$push:req.body}, function(err, result){
 //         if(err){
 //             console.log('error editing');
 //         }
-//         res.redirect('/memberlist')
+//         res.redirect('/')
 //     });
+
+
+// Meeting_id: { type: Schema.Types.ObjectId, ref: 'Meeting' }
+// then Member.find({}).populate('Meeting_id').exec(function (err, members){
+//   if(err) { console.log(err) }
+//   res.render('index', { members : members }); });
+
+
+
+
 // });
-
-
-
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -42,6 +82,7 @@ router.get('/', function(req, res, next) {
 router.get('/memberlist', function(req, res, next){
 
   Member.find({}, function(err, members, meetings){
+    console.log(req.body);
     res.render('memberlist', {title:"test", members: members});
   });
 });

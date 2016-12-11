@@ -1,65 +1,116 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <% include partials/head %>
   </head>
   <body>
 
-
     <h2>Welcome</h2>
+    <!-- page links -->
+    <div class="">
+      <a href="/addmember">Add New Guest</a>
+      <a href="/memberlist">Guestlist</a>
+    </div>
+    <div class="">
+      <a href="/addevent">Add New Event</a>
+      <a href="/eventlist">Eventlist</a>
+    </div>
+    <!-- end of page links -->
 
+
+<!-- dropdown list of events -->
     <label>Event:</label>
 <select class="form-control" type= "text" name="category">
   <% meetings.forEach(function(meeting){%>
   <option value="<%=meeting.name%>"><%=meeting.name%></option>
   <% });%>
-  <!-- testing 'selected and value attributes' -->
 </select>
+<!-- end of dropdown section -->
 
 
-    <div class="container">
+<!-- search bar -->
+<!-- <div ng-app="angularTypeahead"
+<div class="container" ng-controller="TypeaheadCtrl">
   <div class="row">
-    <h2 class="title">Event Name</h2>
-    <div id="custom-search-input">
+    <h2>Event Name</h2>
+    <div>
       <div class="input-group col-md-12">
-        <input type="text" placeholder="Search guest" class="search-query form-control"/><span class="input-group-btn">
-          <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button></span>
+        <input type="text" placeholder="Search guest" class="form-control" ng-model="selected" typeahead="name for name in names | filter:$viewValue"/>
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
       </div>
     </div>
   </div>
 </div>
+</div> -->
+<!-- end of search bar section -->
 
-<div class="">
-  <a href="/addmember">Add New Guest</a>
-</div>
-<div class="">
-  <a href="/memberlist">Guestlist</a>
-</div>
-<div class="">
-  <a href="/addevent">Add New Event</a>
-</div>
-<div class="">
-  <a href="/eventlist">Eventlist</a>
-</div>
+<!-- testing new search box -->
+<div ng-app="angularTypeahead"
+<div class="container" ng-controller="TypeaheadCtrl">
+  <div class="row">
+    <h2>Search Guest</h2>
+    <div>
+      <div class="input-group col-md-12">
 
-<div class="row">
-  <% members.forEach(function(member){%>
-<div class="col-sm-3">
-<div class="card">
-  <img class="card-img-top" src="http://placehold.it/250x200" alt="">
-  <div class="card-block">
-    <h4 class="card-title"><%=member.name %></h4>
-    <p class="card-text"><%=member.description %></p>
-    <a href="#" class="btn btn-info">Guest Profile</a>
-    <a href="#" class="btn btn-success">Check In Guest</a>
+        <!-- event button section of searchbar -->
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Event
+          </button>
+          <div class="dropdown-menu">
+            <% meetings.forEach(function(meeting){%>
+            <a class="dropdown-item" href="#"><%=meeting.name %></a>
+            <div role="separator" class="dropdown-divider"></div>
+            <% });%>
+          </div>
+        </div>
+        <!-- end of event buttoon section of searchbar -->
+
+        <input type="text" placeholder="Find guest..." class="form-control" ng-model="selected" typeahead="name for name in names | filter:$viewValue"/>
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div>
+    </div>
   </div>
 </div>
 </div>
-<% });%>
-</div>
+<!-- end of searchbox test -->
 
+<!-- populating page with guest info -->
+<div class="row">
+  <% members.forEach(function(member){%>
+  <div class="col-sm-3">
+    <div class="card">
+      <img class="card-img-top" src="http://placehold.it/250x200" alt="">
+      <div class="card-block">
+        <h4 class="card-title"><%=member.name %></h4>
+        <p class="card-text"><%=member.description %></p>
+        <a href="#" class="btn btn-info">Guest Profile</a>
+        <form class="" action="/<%=member._id %>" method="POST">
+          <button type="submit" name="<%=member.events %>" class="btn btn-danger">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <% });%>
+</div>
+<!-- end of member info section -->
+
+
+
+<!-- angular experimentation -->
+<!-- <div ng-app="">
+  <div ng-controller="members"></div>
+  <h1>Angular filter</h1>
+  <p>From Angular Api <a href="http://bit.ly/1orfZFD">docs</a></p>
+  <input type="text" placeholder="Find the friend" ng-model="searchText">
+  <ul>
+    <li ng-repeat="member in members | filter:searchText">You can reach <strong>{{ member.name }}</strong> at <strong>{{ member.phone }}</strong></li>
+  </ul>
+</div> -->
 
 
 

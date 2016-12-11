@@ -10,9 +10,9 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var mongoose = require('mongoose');
 
-
-// mongoose.connect(process.env.MLAB_URI);
-mongoose.connect('mongodb://localhost/tempdb');
+var db_uri=process.env.MLAB_URI || 'mongodb://localhost/tempdb';
+var db = mongoose.connect(db_uri);
+// mongoose.connect('mongodb://localhost/tempdb');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
