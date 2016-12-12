@@ -24,7 +24,7 @@
               <td><%=member.phone%></td>
               <td><a href="/editmember/<%=member.id %>" class="btn btn-warning">Edit</a></td>
               <td>
-                <form class="" action="/memberlist/<%=member._id %>" method="POST">
+                <form class="" action="/memberlist/<%=member.id %>" method="POST">
                 <button type="submit" name="button" class="btn btn-danger">Delete</button>
                 </form>
               </td>

@@ -4,21 +4,32 @@
 var myApp = angular.module("angularTypeahead", ["ui.bootstrap"]);
 
 // define factory for data source
-myApp.factory("Names", function(){
+myApp.factory("Names", function($http){
+
+  var names = ["Joshua", "Marco", "Gulmaro", "Jackson", "Elia", "Sarah", "Sylvia", "Laura",];
+  // var names = http.get('/')
+
+
+  //
+  // var names = [{content:null}];
+
+// $http.get('content.json').success(function(members) {
+//     // you can do some processing here
+//     names = [];
+//     for (i = 0; i < members.length; i++) {
+//     names.push(members[i].name);
+//     }
+//
+//     console.log(names);
+//
+//     names.content = members;
+// });
+
+return names;
 
 
 
-  var names = ["Josh", "Marco", "Gulmaro", "Jackson", "Elia", "Sarah", "Sylvia", "Laura",];
 
-        
-        // names = [];
-        // for (i = 0; i < members.length; i++) {
-        // names.push(members[i].name);
-        // }
-
-
-
-  return names;
 });
 
 // setup controller and pass data source

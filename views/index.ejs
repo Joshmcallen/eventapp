@@ -5,164 +5,22 @@
   </head>
   <body>
 
-    <h2>Welcome</h2>
-    <!-- page links -->
-    <div class="">
-      <a href="/addmember">Add New Guest</a>
-      <a href="/memberlist">Guestlist</a>
-    </div>
-    <div class="">
-      <a href="/addevent">Add New Event</a>
-      <a href="/eventlist">Eventlist</a>
-    </div>
-    <!-- end of page links -->
 
 
-<!-- dropdown list of events -->
-    <!-- <label>Event:</label>
-<select class="form-control" type= "text" name="category">
-  <% meetings.forEach(function(meeting){%>
-  <option value="<%=meeting.name%>"><%=meeting.name%></option>
-  <% });%>
-</select> -->
-<!-- end of dropdown section -->
+<!-- dropdown menu populated with events -->
+<% include partials/functions/links %>
 
+<!-- dropdown menu populated with events -->
+<%# include partials/functions/dropdown %>
 
 <!-- search bar -->
-<!-- <div ng-app="angularTypeahead"
-<div class="container" ng-controller="TypeaheadCtrl">
-  <div class="row">
-    <h2>Event Name</h2>
-    <div>
-      <div class="input-group col-md-12">
-        <input type="text" placeholder="Search guest" class="form-control" ng-model="selected" typeahead="name for name in names | filter:$viewValue"/>
-        <span class="input-group-btn">
-          <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-</div> -->
-<!-- end of search bar section -->
+<%# include partials/functions/search %>
 
-<!-- testing new search box -->
-<div ng-app="angularTypeahead"
-<div class="container" ng-controller="TypeaheadCtrl">
-  <div class="row">
-    <h2>Search Guest</h2>
-    <div>
-      <div class="input-group col-md-12">
+<!-- search bar with dropdown menu of events -->
+<% include partials/functions/searchtwo %>
 
-        <!-- event button section of searchbar -->
-        <div class="input-group-btn">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Event
-          </button>
-          <div class="dropdown-menu">
-            <% meetings.forEach(function(meeting){%>
-            <a class="dropdown-item" href="#"><%=meeting.name %></a>
-            <div role="separator" class="dropdown-divider"></div>
-            <% });%>
-          </div>
-        </div>
-        <!-- end of event buttoon section of searchbar -->
-
-        <input type="text" placeholder="Find guest..." class="form-control" ng-model="selected" typeahead="name for name in names | filter:$viewValue"/>
-        <span class="input-group-btn">
-          <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<!-- end of searchbox test -->
-
-<!-- populating page with guest info -->
-<div class="row">
-  <% members.forEach(function(member){%>
-  <div class="col-sm-3">
-    <div class="card">
-      <img class="card-img-top" src="http://placehold.it/250x200" alt="">
-      <div class="card-block">
-        <h4 class="card-title"><%=member.name %></h4>
-        <p class="card-text"><%=member.description %></p>
-        <a href="#" class="btn btn-info">Guest Profile</a>
-        <form class="" action="/<%=member._id %>" method="POST">
-          <button type="submit" name="<%=member.events %>" class="btn btn-danger">Update</button>
-        </form>
-      </div>
-    </div>
-  </div>
-  <% });%>
-</div>
-<!-- end of member info section -->
-
-
-
-<!-- angular experimentation -->
-<!-- <div ng-app="">
-  <div ng-controller="members"></div>
-  <h1>Angular filter</h1>
-  <p>From Angular Api <a href="http://bit.ly/1orfZFD">docs</a></p>
-  <input type="text" placeholder="Find the friend" ng-model="searchText">
-  <ul>
-    <li ng-repeat="member in members | filter:searchText">You can reach <strong> {{member.name}} </strong> at <strong>{{ member.phone }}</strong></li>
-  </ul>
-</div> -->
-
-<!-- <div ng-init="members"></div>
-
-<label>Search: <input ng-model="searchText"></label>
-<table id="searchTextResults">
-  <tr><th>Name</th><th>Phone</th></tr>
-  <tr ng-repeat="member in members | filter:searchText">
-    <td>{{member.name}}</td>
-    <td>{{member.phone}}</td>
-  </tr>
-</table>
-
-
-
-<script>
-var expectFriendNames = function(expectedNames, key) {
-  element.all(by.repeater(key + ' in members').column(key + '.name')).then(function(arr) {
-    arr.forEach(function(wd, i) {
-      expect(wd.getText()).toMatch(expectedNames[i]);
-    });
-  });
-};
-
-it('should search across all fields when filtering with a string', function() {
-  var searchText = element(by.model('searchText'));
-  searchText.clear();
-  searchText.sendKeys('m');
-  expectFriendNames(['Mary', 'Mike', 'Adam'], 'member');
-
-  searchText.clear();
-  searchText.sendKeys('76');
-  expectFriendNames(['John', 'Julie'], 'member');
-});
-
-it('should search in specific fields when filtering with a predicate object', function() {
-  var searchAny = element(by.model('search.$'));
-  searchAny.clear();
-  searchAny.sendKeys('j');
-  expectFriendNames(['joshua'], 'memberObj');
-});
-it('should use a equal comparison when comparator is true', function() {
-  var searchName = element(by.model('search.name'));
-  var strict = element(by.model('strict'));
-  searchName.clear();
-  searchName.sendKeys('Joshua');
-  strict.click();
-  expectFriendNames(['Joshua'], 'memberObj');
-});
-
-
-</script> -->
-
+<!-- populating member info on page -->
+<% include partials/functions/memberinfo %>
 
 
 

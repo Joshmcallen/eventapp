@@ -1,0 +1,32 @@
+<!-- testing new search box -->
+<div ng-app="angularTypeahead"
+<div class="container" ng-controller="TypeaheadCtrl">
+  <div class="row">
+    <h2>Search Guest</h2>
+    <div>
+      <div class="input-group col-md-12">
+
+        <!-- event button section of searchbar -->
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Event
+          </button>
+          <div class="dropdown-menu">
+            <% meetings.forEach(function(meeting){%>
+            <a class="dropdown-item" href="#"><%=meeting.name %></a>
+            <div role="separator" class="dropdown-divider"></div>
+            <% });%>
+          </div>
+        </div>
+        <!-- end of event buttoon section of searchbar -->
+
+        <input type="text" placeholder="Find guest..." class="form-control" ng-model="selected" typeahead="name for name in names | filter:$viewValue"/>
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- end of searchbox test -->

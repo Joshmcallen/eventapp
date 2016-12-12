@@ -1,0 +1,8 @@
+<!-- dropdown list of events -->
+    <label>Event:</label>
+<select class="form-control" type= "text" name="category">
+  <% meetings.forEach(function(meeting){%>
+  <option value="<%=meeting.name%>"><%=meeting.name%></option>
+  <% });%>
+</select>
+<!-- end of dropdown section -->

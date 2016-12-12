@@ -1,0 +1,19 @@
+<!-- populating page with guest info -->
+<div class="row">
+  <% members.forEach(function(member){%>
+  <div class="col-sm-3">
+    <div class="card">
+      <img class="card-img-top" src="http://placehold.it/250x200" alt="">
+      <div class="card-block">
+        <h4 class="card-title"><%=member.name %></h4>
+        <p class="card-text"><%=member.description %></p>
+        <a href="/member/<%=member.id %>" class="btn btn-info">Guest Profile</a>
+        <form class="" action="/<%=member._id %>" method="POST">
+          <button type="submit" name="<%=member.events %>" class="btn btn-success">Check in Guest</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <% });%>
+</div>
+<!-- end of member info section -->
