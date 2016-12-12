@@ -17,7 +17,9 @@
           <tbody>
           <% meetings.forEach(function(meeting){%>
             <tr>
-              <td><%=meeting.name%></td>
+              <td>
+                <a href="/event/<%=meeting._id%>"><%=meeting.name%></a>
+              </td>
               <td><%=meeting.date%></td>
               <td><%=meeting.location%></td>
               <td><a href="/editevent/<%=meeting.id %>" class="btn btn-warning">Edit</a></td>

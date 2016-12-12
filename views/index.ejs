@@ -19,12 +19,12 @@
 
 
 <!-- dropdown list of events -->
-    <label>Event:</label>
+    <!-- <label>Event:</label>
 <select class="form-control" type= "text" name="category">
   <% meetings.forEach(function(meeting){%>
   <option value="<%=meeting.name%>"><%=meeting.name%></option>
   <% });%>
-</select>
+</select> -->
 <!-- end of dropdown section -->
 
 
@@ -108,9 +108,61 @@
   <p>From Angular Api <a href="http://bit.ly/1orfZFD">docs</a></p>
   <input type="text" placeholder="Find the friend" ng-model="searchText">
   <ul>
-    <li ng-repeat="member in members | filter:searchText">You can reach <strong>{{ member.name }}</strong> at <strong>{{ member.phone }}</strong></li>
+    <li ng-repeat="member in members | filter:searchText">You can reach <strong> {{member.name}} </strong> at <strong>{{ member.phone }}</strong></li>
   </ul>
 </div> -->
+
+<!-- <div ng-init="members"></div>
+
+<label>Search: <input ng-model="searchText"></label>
+<table id="searchTextResults">
+  <tr><th>Name</th><th>Phone</th></tr>
+  <tr ng-repeat="member in members | filter:searchText">
+    <td>{{member.name}}</td>
+    <td>{{member.phone}}</td>
+  </tr>
+</table>
+
+
+
+<script>
+var expectFriendNames = function(expectedNames, key) {
+  element.all(by.repeater(key + ' in members').column(key + '.name')).then(function(arr) {
+    arr.forEach(function(wd, i) {
+      expect(wd.getText()).toMatch(expectedNames[i]);
+    });
+  });
+};
+
+it('should search across all fields when filtering with a string', function() {
+  var searchText = element(by.model('searchText'));
+  searchText.clear();
+  searchText.sendKeys('m');
+  expectFriendNames(['Mary', 'Mike', 'Adam'], 'member');
+
+  searchText.clear();
+  searchText.sendKeys('76');
+  expectFriendNames(['John', 'Julie'], 'member');
+});
+
+it('should search in specific fields when filtering with a predicate object', function() {
+  var searchAny = element(by.model('search.$'));
+  searchAny.clear();
+  searchAny.sendKeys('j');
+  expectFriendNames(['joshua'], 'memberObj');
+});
+it('should use a equal comparison when comparator is true', function() {
+  var searchName = element(by.model('search.name'));
+  var strict = element(by.model('strict'));
+  searchName.clear();
+  searchName.sendKeys('Joshua');
+  strict.click();
+  expectFriendNames(['Joshua'], 'memberObj');
+});
+
+
+</script> -->
+
 
 
 

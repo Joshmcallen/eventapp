@@ -17,7 +17,9 @@
           <tbody>
           <% members.forEach(function(member){%>
             <tr>
-              <td><%=member.name%></td>
+              <td>
+                <a href="/member/<%=member._id%>"><%=member.name%></a>
+              </td>
               <td><%=member.email%></td>
               <td><%=member.phone%></td>
               <td><a href="/editmember/<%=member.id %>" class="btn btn-warning">Edit</a></td>

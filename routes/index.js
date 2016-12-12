@@ -12,13 +12,14 @@ router.get('/', function(req, res, next) {
 
     Member.find({}, function(err, members){
       res.render('index', {title: "index", members: members, meetings: meetings});
+
     });
   });
 });
 
 
 // //Post that will update two collection
-router.post('/:id', function(req, res, next){
+// router.post('/:id', function(req, res, next){
 
   // console.log('im testing update route')
   //
@@ -43,7 +44,7 @@ router.post('/:id', function(req, res, next){
 //   //placeholder logic to push name of meeting(event) into member array of events
 //   Meeting.attendants.push(Member.name);
 //
-});
+// });
 //
 //   Meeting.attendants.push
 
@@ -223,6 +224,39 @@ router.post('/editevent/:id', function(req, res, next){
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+
+////////////////////Specific Member and Meeting Pages///////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+//go to page of specific member
+router.get('/member/:id', function(req, res, next){
+
+  var id = req.params.id;
+  Member.findById(id, function(err, members) {
+    if(err){
+      console.log("item not found")
+      }
+    else {
+       res.render('memberpage', {title: 'memberpage', members: members})
+     }
+  });
+});
+
+//go to page of specific event
+router.get('/event/:id', function(req, res, next){
+
+  var id = req.params.id;
+  Meeting.findById(id, function(err, meetings) {
+    if(err){
+      console.log("item not found")
+      }
+    else {
+
+       res.render('eventpage', {title: 'eventpage', meetings: meetings})
+     }
+  });
+});
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 
 

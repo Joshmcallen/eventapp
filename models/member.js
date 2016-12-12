@@ -10,8 +10,8 @@ name: {type: String, required: true},
 description: {type: String, require: true},
 email: {type: String, require: true},
 phone: {type: String, require: true},
-image: {type: String},
-events: []
+image: {type: String}
+// events: []
 
 });
 
