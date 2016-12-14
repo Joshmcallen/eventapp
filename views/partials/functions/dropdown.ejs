@@ -1,8 +1,13 @@
 <!-- dropdown list of events -->
     <label>Event:</label>
-<select class="form-control" type= "text" name="category">
+<form class="" action="/eventcheckin" method="POST">
+  <select class="form-control" type= "text" name="name">
   <% meetings.forEach(function(meeting){%>
   <option value="<%=meeting.name%>"><%=meeting.name%></option>
   <% });%>
-</select>
+  </select>
+  <!--submit button -->
+  <button type="submit" name="button" class="btn btn-danger">Go to Event Page</button>
+</form>
+
 <!-- end of dropdown section -->

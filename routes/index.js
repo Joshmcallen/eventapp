@@ -9,72 +9,14 @@ var Meeting = require('../models/meeting');
 router.get('/', function(req, res, next) {
 
   Meeting.find({}, function(err, meetings){
-
     Member.find({}, function(err, members){
       res.render('index', {title: "index", members: members, meetings: meetings});
-
     });
   });
 });
 
-
-// //Post that will update two collection
-// router.post('/:id', function(req, res, next){
-
-  // console.log('im testing update route')
-  //
-  // var id = req.params.id;
-  // var member = new Member({
-  //   "events": req.body.Meeting.name
-  // });
-  // console.log(member);
-  // console.log(id);
-
-//
-//   Member.findByIdAndUpdate(
-//           info._id,
-//           {$push: {"events": {title: title, msg: msg}}}, {new : true}, function(err, members) {
-//               console.log(err);
-//           }
-//       );
-//
-//   //placeholder logic to push name of meeting(event) into member array of events
-//   Member.events.push(Meeting.name);
-//
-//   //placeholder logic to push name of meeting(event) into member array of events
-//   Meeting.attendants.push(Member.name);
-//
-// });
-//
-//   Meeting.attendants.push
-
-
-// console.log(req.params.id);
-//     var id = req.params.id;
-//     var original = id.name;
-
-
-//     Member.findByIdAndUpdate(id,{$push:req.body}, function(err, result){
-//         if(err){
-//             console.log('error editing');
-//         }
-//         res.redirect('/')
-//     });
-
-
-// Meeting_id: { type: Schema.Types.ObjectId, ref: 'Meeting' }
-// then Member.find({}).populate('Meeting_id').exec(function (err, members){
-//   if(err) { console.log(err) }
-//   res.render('index', { members : members }); });
-
-
-
-
-// });
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-
 
 
 //////////////////////////////Memberlist Pages//////////////////////////////////
@@ -259,6 +201,49 @@ router.get('/event/:id', function(req, res, next){
 ////////////////////////////////////////////////////////////////////////////////
 
 
+// page for checking in guest
+// router.get('/eventcheckin', function(req, res, next){
+//
+//
+//
+//   res.render('eventcheckin', {title: 'check in guest'});
+// });
+
+// router.post('/eventcheckin', function(req, res, next){
+//   var event =
+//
+//
+// });
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+//page to display search results
+router.get('/searchresults', function(req, res, next){
+
+  var search = req.body.searchinput;
+  console.log(search);
+
+  Meeting.find({}, function(err, meetings){
+    Member.find({ "name":{"$regex": search, "$options": "i"} }, function(err, members){
+      res.render('index', {title: "index", members: members, meetings: meetings});
+    });
+  });
+});
+//Post to search
+router.post('/searchresults', function(req, res, next){
+
+    var search = new RegExp(req.body.searchinput);
+    console.log(search);
+
+    Member.find({"name":{"$regex": search, "$options": "ig"}}, function(err, members) {
+      if(err) throw err;
+
+      res.render('searchresults', {title:'Search', members: members});
+    });
+  });
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 
 module.exports = router;

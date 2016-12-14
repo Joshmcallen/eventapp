@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partials/head %>
+  </head>
+  <body>
+
+
+
+<!-- page links -->
+<% include partials/functions/links %>
+
+<p>results page</p>
+
+
+<!-- test output for matched search items-->
+<% members.forEach(function(member){%>
+
+  <p><%=member.name %></p>
+  <p><%=member.description %></p>
+
+<% });%>
+<!-- end of output for matched search items -->
+
+
+
+  </body>
+</html>

@@ -18,7 +18,7 @@
           <% members.forEach(function(member){%>
             <tr>
               <td>
-                <a href="/member/<%=member._id%>"><%=member.name%></a>
+                <a href="/member/<%=member.id %>"><%=member.name%></a>
               </td>
               <td><%=member.email%></td>
               <td><%=member.phone%></td>
@@ -28,10 +28,8 @@
                 <button type="submit" name="button" class="btn btn-danger">Delete</button>
                 </form>
               </td>
-
             </tr>
             <% });%>
-
           </tbody>
         </table>
 <!-- end of table with member information -->
