@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partials/head %>
+  </head>
+  <body>
+
+
+    <!-- navbar -->
+    <% include partials/functions/navbar %>
+
+    <center><h1>Events Found:</h1></center>
+
+    <!-- populating matching searched events on page -->
+    <% include partials/functions/eventinfo %>
+
+<!-- all event information sorted with a table -->
+        <!-- <table class="table table-hover table-inverse">
+          <thead>
+            <td class="active"> Event</td>
+            <td class="active"></td>
+            <td class="active"> Date</td>
+            <td class="active"> Location</td>
+            <td class="active"></td>
+
+          </thead>
+          <tbody>
+          <% meetings.forEach(function(meeting){%>
+            <tr>
+              <td class="active">
+                <img class="img-responsive img-center" height="70" width="70" src="<%=meeting.image %>" alt="">
+              </td>
+              <td class="active"><%=meeting.name%></td>
+              <td class="active"><%=meeting.date%></td>
+              <td class="active"><%=meeting.location%></td>
+              <td class="active"><a href="/event/<%=meeting.id %>" class="btn btn-primary">Event Info</a></td>
+            </tr>
+            <% });%>
+
+          </tbody>
+        </table> -->
+<!-- end of table with event information -->
+
+
+
+
+
+  </body>
+</html>

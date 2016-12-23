@@ -6,36 +6,49 @@
   <body>
 
 
-<!-- all member information sorted with a table -->
-        <table class="table table-hover table-inverse">
-          <thead>
-            <td> Event</td>
-            <td> Date</td>
-            <td> Location</td>
-            <td></td>
-          </thead>
-          <tbody>
-          <% meetings.forEach(function(meeting){%>
-            <tr>
-              <td>
-                <a href="/event/<%=meeting._id%>"><%=meeting.name%></a>
-              </td>
-              <td><%=meeting.date%></td>
-              <td><%=meeting.location%></td>
-              <td><a href="/editevent/<%=meeting.id %>" class="btn btn-warning">Edit</a></td>
-              <td>
-                <form class="" action="/eventlist/<%=meeting.id %>" method="POST">
-                <button type="submit" name="button" class="btn btn-danger">Delete</button>
-                </form>
-              </td>
-            </tr>
-            <% });%>
+    <!-- navbar -->
+    <% include partials/functions/navbar %>
 
-          </tbody>
-        </table>
-<!-- end of table with member information -->
 
-<a href="/">Main Page</a>
+    <!-- all event information sorted with a table -->
+    <table class="table table-hover table-inverse">
+      <thead>
+        <td class="active"> Event</td>
+        <td class="active"></td>
+        <td class="active"> Date</td>
+        <td class="active"> Location</td>
+        <td class="active"></td>
+        <td class="active"></td>
+        <td class="active"</td>
+      </thead>
+      <tbody>
+      <% meetings.forEach(function(meeting){%>
+        <tr>
+          <td class="active">
+            <a href="/eventcheckin/<%=meeting._id%>">
+              <img class="img-responsive img-rounded img-center" height="70" width="70" src="<%=meeting.image %>" alt="">
+            </a>
+          </td>
+          <td class="active">
+            <a href="/eventcheckin/<%=meeting._id%>"><%=meeting.name%></a>
+          </td>
+          <td class="active"><%=meeting.date%></td>
+          <td class="active"><%=meeting.location%></td>
+          <td class="active"><a href="/attendees/<%=meeting.id %>" class="btn btn-success">Attendees</a></td>
+          <td class="active"><a href="/editevent/<%=meeting.id %>" class="btn btn-warning">Edit</a></td>
+          <td class="active">
+            <form class="" action="/eventlist/<%=meeting.id %>" method="POST">
+            <button type="submit" name="button" class="btn btn-danger">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% });%>
+
+      </tbody>
+    </table>
+    <!-- end of table with event information -->
+
+
 
 
 

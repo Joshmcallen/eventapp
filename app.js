@@ -11,8 +11,8 @@ var multer = require('multer');
 var mongoose = require('mongoose');
 
 var db_uri=process.env.MLAB_URI || 'mongodb://localhost/tempdb';
-var db = mongoose.connect(db_uri);
-// mongoose.connect('mongodb://localhost/tempdb');
+mongoose.connect(db_uri);
+// mongoose.connect('mongodsb://localhost/tempdb');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

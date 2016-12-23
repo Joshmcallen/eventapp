@@ -5,22 +5,20 @@
   </head>
   <body>
 
+    <!-- navbar -->
+    <% include partials/functions/navbar %>
 
+    <!-- form to create an event -->
     <h1><%= title %></h1>
     <form action="/addevent" method="post" enctype="multipart/form-data">
-          <div class="">
             <input class="form-control" type="text" name="name" placeholder="event name">
-          </div>
-          <div class="">
             <input class="form-control" type="text" name="date" placeholder="date">
-          </div>
-          <div class="">
             <input class="form-control" type="text" name="location" placeholder="location">
-          </div>
-            <button class= "form-control btn btn-primary" type="submit">Add Event</button>
+            <input class="form-control" type="text" name="description" placeholder="description">
+            <input class="form-control" type="file" name="image" value="">
+            <button class="form-control btn btn-primary" type="submit">Add Event</button>
           </form>
 
-    <a href="/">Main Page</a>
 
 
 

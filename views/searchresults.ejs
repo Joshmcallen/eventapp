@@ -6,23 +6,37 @@
   <body>
 
 
+    <!-- navbar -->
+    <% include partials/functions/navbar %>
 
-<!-- page links -->
-<% include partials/functions/links %>
+    <center><h1>Guests Found:</h1></center>
 
-<p>results page</p>
+    <!-- populating matching searched members on page -->
+    <% include partials/functions/attendeeinfo %>
 
+<!-- all member information sorted with a table -->
+        <!-- <table class="table table-hover table-inverse">
+          <thead>
+            <td class="active">Guest</td>
+            <td class="active"></td>
+            <td class="active">Email</td>
+            <td class="active">Phone</td>
+            <td class="active"></td>
 
-<!-- test output for matched search items-->
-<% members.forEach(function(member){%>
+          </thead>
+          <tbody>
+          <% members.forEach(function(member){%>
+            <tr>
+              <td class="active">
+                <img class="img-responsive img-center" height="70" width="70" src="<%=member.image %>" alt="">
+              </td>
+              <td class="active"><%=member.name%></td>
+              <td class="active"><%=member.email%></td>
+              <td class="active"><%=member.phone%></td>
+              <td class="active"><a href="/member/<%=member.id %>" class="btn btn-primary">Guest Profile</a></td>
+            </tr>
+            <% });%>
 
-  <p><%=member.name %></p>
-  <p><%=member.description %></p>
-
-<% });%>
-<!-- end of output for matched search items -->
-
-
-
-  </body>
-</html>
+          </tbody>
+        </table> -->
+<!-- end of table with member information -->

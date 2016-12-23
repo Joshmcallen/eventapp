@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partials/head %>
+  </head>
+  <body>
+
+
+
+<!-- navbar -->
+<% include partials/functions/navbar %>
+
+<center><h1><%=meetings.name %></h1></center>
+
+<center><h2>Guests Attending</h2></center>
+
+<!-- populating members who attended on page -->
+<% include partials/functions/attendeeinfo %>
+
+
+
+  </body>
+</html>

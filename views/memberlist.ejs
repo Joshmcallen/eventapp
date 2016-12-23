@@ -5,36 +5,49 @@
   </head>
   <body>
 
+    <!-- navbar -->
+    <% include partials/functions/navbar %>
 
-<!-- all member information sorted with a table -->
-        <table class="table table-hover table-inverse">
-          <thead>
-            <td> Name</td>
-            <td> Email</td>
-            <td> Phone Number</td>
-            <td></td>
-          </thead>
-          <tbody>
-          <% members.forEach(function(member){%>
-            <tr>
-              <td>
-                <a href="/member/<%=member.id %>"><%=member.name%></a>
-              </td>
-              <td><%=member.email%></td>
-              <td><%=member.phone%></td>
-              <td><a href="/editmember/<%=member.id %>" class="btn btn-warning">Edit</a></td>
-              <td>
-                <form class="" action="/memberlist/<%=member.id %>" method="POST">
-                <button type="submit" name="button" class="btn btn-danger">Delete</button>
-                </form>
-              </td>
-            </tr>
-            <% });%>
-          </tbody>
-        </table>
-<!-- end of table with member information -->
+    <!-- all member information sorted with a table -->
+    <table class="table table-hover table-inverse">
+      <thead>
+        <td class="active"> Guest</td>
+        <td class="active"></td>
+        <td class="active"> Phone Number</td>
+        <td class="active"> Email</td>
+        <td class="active"> </td>
+        <td class="active"> </td>
+        <td class="active"> </td>
+      </thead>
+      <tbody>
+      <% members.forEach(function(member){%>
+        <tr class="active">
+          <td class="active">
+            <a href="/member/<%=member.id %>"><img class="img-responsive img-rounded img-center" height="70" width="70" src="<%=member.image %>" alt=""></a>
+          </td>
+          <td>
+            <a href="/member/<%=member.id %>"><%=member.name%></a>
+          </td>
+          <td><%=member.phone%></td>
+          <td><%=member.email%></td>
+          <td>
+          <form class="" action="#" method="POST">
+          <button type="submit" name="button" class="btn btn-success">send email</button>
+          </form>
+          </td>
+          <td><a href="/editmember/<%=member.id %>" class="btn btn-warning">Edit</a></td>
+          <td>
+            <form class="" action="/memberlist/<%=member.id %>" method="POST">
+            <button type="submit" name="button" class="btn btn-danger">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% });%>
+      </tbody>
+    </table>
+    <!-- end of table with member information -->
 
-<a href="/">Main Page</a>
+
 
 
 

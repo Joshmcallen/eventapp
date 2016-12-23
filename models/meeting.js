@@ -9,9 +9,10 @@ var meetingSchema = new Schema({
 name: {type: String, required: true},
 date: {type: String, require: true},
 location: {type: String, require: true},
-// image: {type: String},
-attendants: []
-
+description: {type: String},
+image: {type: String},
+attendants: [{ type: Schema.Types.ObjectId, ref: 'Member'}] //to hold all attendant info
+// attendants: [{ type: String, ref: 'Member' }] //to hold info attendant name
 });
 
 

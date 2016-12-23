@@ -2,13 +2,13 @@
 <div ng-app="angularTypeahead"
 <div class="container" ng-controller="TypeaheadCtrl">
   <div class="row">
-    <h2>Event Name</h2>
-    <div>
+    <!-- <label>Guest</label> -->
+    <div class="">
       <div class="input-group col-md-12">
         <form class = "input-group" method="post" action="/searchresults">
         <input type="text" name="searchinput" placeholder="Search guest" class="form-control" ng-model="selected" typeahead="name for name in names | filter:$viewValue"/>
         <span class="input-group-btn">
-          <button type="submit" value="Search" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button>
+          <button type="submit" value="Search" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
         </span>
       </form>
       </div>

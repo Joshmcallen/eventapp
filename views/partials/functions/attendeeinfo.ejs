@@ -1,0 +1,28 @@
+
+<div class="container">
+  <!-- First row -->
+  <div class="row">
+  <% members.forEach(function(member){%>
+    <div class="col-xs-12 col-md-3">
+      <!-- Card -->
+      <div class="card card-inverse">
+        <div class="card-block">
+          <h4 class="card-title text-center"><%=member.name %></h4>
+          <h6 class="text-center"><%=member.description %></h6>
+        </div>
+        <img class="img-responsive" src="<%=member.image %>" width="100%" alt="" />
+        <!-- 1st card block for spacing -->
+        <div class="card-block">
+          <p class="card-text"></p>
+        </div>
+        <div class="card-block text-center card-padding">
+          <div class="btn-group role="group" aria-label="Card buttons">
+            <a href="/member/<%=member.id %>" class="btn btn-primary">Guest Profile</a>
+          </div>
+        </div>
+      </div><!-- end of Card -->
+    </div>
+  <% });%>
+</div><!-- end of row -->
+
+</div>

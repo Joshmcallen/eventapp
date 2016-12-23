@@ -1,0 +1,31 @@
+
+<div class="container">
+  <!-- First row -->
+  <div class="row">
+  <% meetings.forEach(function(meeting){%>
+    <div class="col-xs-12 col-md-4">
+      <!-- Card -->
+      <div class="card card-inverse">
+        <div class="card-block">
+          <h4 class="card-title text-center"><%=meeting.name %></h4>
+
+        </div>
+        <img class="img-responsive" height="50px" src="<%=meeting.image %>" alt="" />
+        <!-- 1st card block for spacing -->
+        <div class="card-block">
+          <p class="card-text"></p>
+        </div>
+        <div class="card-block text-center card-padding">
+          <div class="btn-group role="group" aria-label="Card buttons">
+            <a href="/event/<%=meeting.id %>" class="btn btn-primary">Event Info</a>
+          </div>
+          <!-- <div class="btn-group" role="group" aria-label="Card buttons">
+            <a href="#" class="btn btn-success">Guest List</a>
+          </div> -->
+        </div>
+      </div><!-- end of Card -->
+    </div>
+  <% });%>
+</div><!-- end of row -->
+
+</div>

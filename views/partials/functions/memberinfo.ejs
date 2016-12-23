@@ -1,19 +1,53 @@
 <!-- populating page with guest info -->
-<div class="row">
+<!-- <div class="row">
   <% members.forEach(function(member){%>
-  <div class="col-sm-3">
-    <div class="card">
-      <img class="card-img-top" src="http://placehold.it/250x200" alt="">
+  <div class="col-sm-3 infobox">
+    <div class="card infocard">
+      <img class="card-img-top img-responsive" src="<%=member.image %>" alt="">
       <div class="card-block">
         <h4 class="card-title"><%=member.name %></h4>
         <p class="card-text"><%=member.description %></p>
-        <a href="/member/<%=member.id %>" class="btn btn-info">Guest Profile</a>
-        <form class="" action="/<%=member._id %>" method="POST">
-          <button type="submit" name="<%=member.events %>" class="btn btn-success">Check in Guest</button>
-        </form>
+        <div class="">
+          <a href="/member/<%=member.id %>" class="buttonleft btn btn-info">Profile</a>
+          <a href="/member/<%=member.id %>" class="buttonleft btn btn-info">Check In</a>
+
+
+      </div>
       </div>
     </div>
   </div>
   <% });%>
-</div>
+</div> -->
 <!-- end of member info section -->
+
+
+<div class="container">
+  <!-- First row -->
+  <div class="row">
+  <% members.forEach(function(member){%>
+    <div class="col-xs-12 col-md-2">
+      <!-- Card -->
+      <div class="card card-inverse">
+        <div class="card-block">
+          <h4 class="card-title text-center"><%=member.name %></h4>
+          <h6 class="text-center"><%=member.description %></h6>
+        </div>
+        <img class="img-responsive" src="<%=member.image %>" width="100%" alt="" />
+        <!-- 1st card block for spacing -->
+        <div class="card-block">
+          <p class="card-text"></p>
+        </div>
+        <div class="card-block text-center card-padding">
+          <div class="btn-group role="group" aria-label="Card buttons">
+            <a href="/member/<%=member.id %>" class="btn btn-primary">Guest Profile</a>
+          </div>
+          <div id="" class="btn-group test" role="group" aria-label="Card buttons">
+            <a href="#" class="btn btn-danger">Check in Guest</a>
+          </div>
+        </div>
+      </div><!-- end of Card -->
+    </div>
+  <% });%>
+</div><!-- end of row -->
+
+</div>

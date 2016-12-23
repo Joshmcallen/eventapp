@@ -5,15 +5,35 @@
   </head>
   <body>
 
+    <!-- navbar -->
+    <% include partials/functions/navbar %>
 
 
+    <div class="container event-container">
+        <!-- event info -->
+        <div class="row">
+        <div class="col-md-6">
+          <img src="<%=meetings.image %>" class="img-responsive img-rounded eventimage" alt="">
+        </div>
+        <div class="col-md-6">
+          <h1 class="eventinfo"><%=meetings.name %></h1>
+          <h3 class="eventinfo"><%=meetings.description %></h3>
+          <h4 class="eventinfo"><%=meetings.date %></h4>
+          <h4 class="eventinfo"><%=meetings.location %></h4>
+        </div>
+        <!-- end event info -->
+        </div>
+      </div>
+      <!-- end container-->
 
-    <p><%#=meetings.name %></p>
-    <p><%#=meetings.location %></p>
-    <p><%#=meetings.date %></p>
 
+    <center> <h1>Guest List</h1></center>
 
-    <a href="/">Main Page</a>
+    <!-- search bar for members/guests -->
+    <%# include partials/functions/search %>
+
+    <!-- populating member info on page -->
+    <% include partials/functions/memberinfo %>
 
 
 

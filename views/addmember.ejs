@@ -5,6 +5,9 @@
   </head>
   <body>
 
+    <!-- navbar -->
+    <% include partials/functions/navbar %>
+
     <h1><%= title %></h1>
     <form action="/addmember" method="post" enctype="multipart/form-data">
           <div class="">
@@ -25,7 +28,7 @@
             <button class= "form-control btn btn-primary" type="submit">Add Guest</button>
           </form>
 
-    <a href="/">Main Page</a>
+    
 
 
   </body>

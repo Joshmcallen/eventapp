@@ -5,6 +5,9 @@
   </head>
   <body>
 
+    <!-- navbar -->
+    <% include partials/functions/navbar %>
+
 <!-- for to edit member info -->
     <h1><%= title %></h1>
     <form action="/editmember/<%=members.id%>" method="post" enctype="multipart/form-data">
@@ -12,12 +15,12 @@
             <input class="form-control" type="text" name="email" value="<%=members.email %>" placeholder="email">
             <input class="form-control" type="text" name="phone" value="<%=members.phone %>" placeholder="phone #">
             <input class="form-control" type="text" name="description" value="<%=members.description %>" placeholder="description">
-            <input class = "form-control" type="file" name="image" value="<%=members.description %>">
+            <input class = "form-control" type="file" name="image" value="<%=members.image %>">
             <button class="form-control btn btn-primary" type="submit">Update Guest</button>
           </form>
 
 
-    <a href="/">Main Page</a>
+  
 
 
 

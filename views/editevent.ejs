@@ -5,18 +5,22 @@
   </head>
   <body>
 
+    <!-- navbar -->
+    <% include partials/functions/navbar %>
+
 <!-- for to edit member info -->
     <h1><%= title %></h1>
     <form action="/editevent/<%=meetings.id%>" method="post" enctype="multipart/form-data">
             <input class="form-control" type="text" name="name" value="<%=meetings.name %>" placeholder="event name">
-            <input class="form-control" type="text" name="dat" value="<%=meetings.date %>" placeholder="date">
+            <input class="form-control" type="text" name="date" value="<%=meetings.date %>" placeholder="date">
             <input class="form-control" type="text" name="location" value="<%=meetings.location %>" placeholder="location">
-
+            <input class = "form-control" type="text" name="description" value="<%=meetings.description %>" placeholder="description">
+            <input class = "form-control" type="file" name="image" value="<%=meetings.image %>">
             <button class="form-control btn btn-primary" type="submit">Update Guest</button>
           </form>
 
 
-    <a href="/">Main Page</a>
+
 
 
 
