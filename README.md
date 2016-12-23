@@ -1,4 +1,4 @@
-# Project
+# EventApp
 Application for creating events and checking in guests who attend events.
 
 # Live Demo
