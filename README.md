@@ -2,4 +2,4 @@
 Application for creating events and checking in guests.
 
 # Live Demo
-[nytapi](https://eventapp-jg.herokuapp.com/)
+[evntapp](https://eventapp-jg.herokuapp.com/)
