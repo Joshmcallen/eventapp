@@ -2,4 +2,4 @@
 Application for creating events and checking in guests.
 
 # Live Demo
-[evntapp](https://eventapp-jg.herokuapp.com/)
+[eventapp](https://eventapp-jg.herokuapp.com/)
